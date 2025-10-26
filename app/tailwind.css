@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .gradient-hero {
+    background: linear-gradient(to bottom, rgb(147, 51, 234), rgb(192, 132, 252), rgb(244, 114, 182));
+  }
+}
+
+@layer components {
+  /* Shows only a thin top arc of a huge cream circle at the bottom */
+  .bottom-arc {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 220px; /* increased visible arc height */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start; /* start at top of arc */
+    justify-content: center;
+    padding-top: clamp(40px, 6vw, 110px); /* position CTA higher so arrow stays visible */
+  }
+  .bottom-arc::before {
+    content: none; /* unified circle handles the shape */
+  }
+
+  /* top-arc removed; we will render a single giant circle */
+
+  /* Single giant circle positioned between sections */
+  .giant-circle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, calc(100vh + (var(--arcReveal) * 2)));
+    aspect-ratio: 1 / 1;
+    background: #FFF8DC;
+    border-radius: 9999px;
+    top: calc(100% - var(--arcReveal));
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* Gradient streaks overlay inside hero text */
+  .streak-letter { position: relative; display: inline-block; }
+  .streak-letter::after {
+    content: attr(data-letter);
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgb(147, 51, 234), rgb(192, 132, 252), rgb(244, 114, 182));
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    /* Stripe generator using offset + gap, 1px thickness */
+    -webkit-mask-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 var(--offset, 10px),
+      black var(--offset, 10px) calc(var(--offset, 10px) + 1px),
+      transparent calc(var(--offset, 10px) + 1px) calc(var(--offset, 10px) + var(--gap, 50px))
+    );
+            mask-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 var(--offset, 10px),
+      black var(--offset, 10px) calc(var(--offset, 10px) + 1px),
+      transparent calc(var(--offset, 10px) + 1px) calc(var(--offset, 10px) + var(--gap, 50px))
+    );
+  }
+  /* gaps (controls number of stripes). Smaller = denser */
+  .streak-gap-14 { --gap: 14px; }
+  .streak-gap-16 { --gap: 16px; }
+  .streak-gap-18 { --gap: 18px; }
+  .streak-gap-20 { --gap: 20px; }
+  .streak-gap-22 { --gap: 22px; }
+  .streak-gap-24 { --gap: 24px; }
+  .streak-gap-26 { --gap: 26px; }
+  .streak-gap-28 { --gap: 28px; }
+  .streak-gap-30 { --gap: 30px; }
+  .streak-gap-32 { --gap: 32px; }
+  .streak-gap-34 { --gap: 34px; }
+  .streak-gap-36 { --gap: 36px; }
+  .streak-gap-38 { --gap: 38px; }
+  .streak-gap-40 { --gap: 40px; }
+  /* keep older wider gaps for flexibility */
+  .streak-gap-45 { --gap: 45px; }
+  .streak-gap-50 { --gap: 50px; }
+  .streak-gap-55 { --gap: 55px; }
+  .streak-gap-60 { --gap: 60px; }
+  .streak-gap-65 { --gap: 65px; }
+  /* offsets (shifts stripe positions) */
+  .streak-offset-4 { --offset: 4px; }
+  .streak-offset-6 { --offset: 6px; }
+  .streak-offset-8 { --offset: 8px; }
+  .streak-offset-10 { --offset: 10px; }
+  .streak-offset-14 { --offset: 14px; }
+  .streak-offset-16 { --offset: 16px; }
+  .streak-offset-20 { --offset: 20px; }
+  .streak-offset-22 { --offset: 22px; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Controls how much of the circle is visible at the bottom of the hero */
+  --arcReveal: clamp(100px, 12vw, 180px);
+}
+
