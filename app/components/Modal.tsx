@@ -39,7 +39,7 @@ export default function Modal({ isOpen, onClose, children, ariaLabel, className 
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
       <div
         ref={containerRef}
-        className={`relative max-w-4xl w-[92vw] rounded-xl shadow-2xl overflow-hidden ${className}`}
+        className={`relative max-w-4xl w-[92vw] max-h-[90vh] rounded-xl shadow-2xl overflow-auto ${className}`}
       >
         {children}
       </div>
