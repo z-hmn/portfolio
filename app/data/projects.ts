@@ -28,7 +28,7 @@ export const projects: Project[] = [
     summary: "Programmatic solution for Water Sort Puzzle mobile phone game",
     tech: ["Java"],
     image: "/water-sort.png",
-    screenshot: "/water-sort.png",
+    screenshot: "/water-sort-full.png",
     repoUrl: "https://github.com/z-hmn/WaterSortPuzzle"
   },
   {
@@ -47,8 +47,8 @@ export const projects: Project[] = [
     title: "Personal Portfolio",
     summary: "Personal portfolio website built with Remix and Tailwind CSS",
     tech: ["Remix", "React", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1551018432-2f5a1f6a6e04?w=400&h=400&fit=crop",
-    screenshot: "https://images.unsplash.com/photo-1551018432-2f5a1f6a6e04?w=1400&h=800&fit=crop",
+    image: "/portfolio.png",
+    screenshot: "/portfolio-full.png",
     repoUrl: "https://github.com/z-hmn/portfolio",
     liveUrl: "https://zoehoman.com"
   }
