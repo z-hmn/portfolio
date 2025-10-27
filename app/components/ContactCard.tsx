@@ -11,19 +11,19 @@ export default function ContactCard({ info }: { info: ContactInfo }) {
         </div>
         <div className="flex flex-col items-center gap-1">
           <span className="text-gray-500">Email</span>
-          <a className="font-medium text-blue-700 hover:underline" href={`mailto:${info.email}`}>{info.email}</a>
+          <a className="font-medium text-blue-700 hover:underline break-words" href={`mailto:${info.email}`}>{info.email}</a>
         </div>
         <div className="flex flex-col items-center gap-1">
           <span className="text-gray-500">Phone</span>
-          <a className="font-medium text-blue-700 hover:underline" href={`tel:${info.phone}`}>{info.phone}</a>
+          <a className="font-medium text-blue-700 hover:underline break-words" href={`tel:${info.phone}`}>{info.phone}</a>
         </div>
         <div className="flex flex-col items-center gap-1">
           <span className="text-gray-500">LinkedIn</span>
-          <a className="font-medium text-blue-700 hover:underline" href={info.linkedInUrl} target="_blank" rel="noreferrer">View profile</a>
+          <a className="font-medium text-blue-700 hover:underline break-words" href={info.linkedInUrl} target="_blank" rel="noreferrer">View profile</a>
         </div>
         <div className="flex flex-col items-center gap-1">
           <span className="text-gray-500">GitHub</span>
-          <a className="font-medium text-blue-700 hover:underline" href={info.githubUrl} target="_blank" rel="noreferrer">View repositories</a>
+          <a className="font-medium text-blue-700 hover:underline break-words" href={info.githubUrl} target="_blank" rel="noreferrer">View repositories</a>
         </div>
       </div>
     </div>

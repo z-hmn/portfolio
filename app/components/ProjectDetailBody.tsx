@@ -19,12 +19,12 @@ export function ProjectDetailBody({ project }: { project: Project }) {
           </span>
         ))}
       </div>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <a
           href={project.repoUrl}
           target="_blank"
           rel="noreferrer"
-          className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800"
+          className="w-full sm:w-auto text-center px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800"
         >
           View Code
         </a>
@@ -33,7 +33,7 @@ export function ProjectDetailBody({ project }: { project: Project }) {
             href={project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500"
+            className="w-full sm:w-auto text-center px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500"
           >
             Live Demo
           </a>

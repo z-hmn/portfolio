@@ -40,24 +40,26 @@ export default function Index() {
   return (
     <div className="relative">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-cream py-3 px-8">
-        <nav className="flex items-center gap-8">
-          <a href="#home" className="font-semibold text-gray-800 hover:text-gray-600 transition-colors">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-cream py-3 px-4 sm:px-8">
+        <nav className="flex items-center justify-between">
+          <a href="#home" className="font-semibold text-gray-800 hover:text-gray-600 transition-colors text-sm sm:text-base">
             Zoe Homan
           </a>
-          <a href="#projects" className="text-gray-700 hover:text-gray-900 transition-colors">
-            projects
-          </a>
-          <a href="#about" className="text-gray-700 hover:text-gray-900 transition-colors">
-            about
-          </a>
-          <button
-            type="button"
-            onClick={() => setIsContactOpen(true)}
-            className="text-gray-700 hover:text-gray-900 transition-colors"
-          >
-            contact
-          </button>
+          <div className="flex items-center gap-4 sm:gap-6 text-sm sm:text-base">
+            <a href="#projects" className="text-gray-700 hover:text-gray-900 transition-colors">
+              projects
+            </a>
+            <a href="#about" className="text-gray-700 hover:text-gray-900 transition-colors">
+              about
+            </a>
+            <button
+              type="button"
+              onClick={() => setIsContactOpen(true)}
+              className="text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              contact
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -68,7 +70,7 @@ export default function Index() {
           className="relative h-screen gradient-hero flex items-center justify-center overflow-hidden snap-start"
         >
         {/* Hero Text with per-letter gradient streaks (varied gaps/offsets) */}
-        <h1 className="text-8xl md:text-9xl font-display font-bold text-white tracking-tight z-10">
+        <h1 className="text-[16vw] sm:text-[12vw] md:text-9xl font-display font-bold text-white tracking-tight z-10 px-4 text-center whitespace-nowrap">
           <span>
             <span className="streak-letter streak-gap-18 streak-offset-6" data-letter="Z">Z</span>
             <span className="streak-letter streak-gap-22 streak-offset-14" data-letter="o">o</span>
@@ -109,7 +111,7 @@ export default function Index() {
         {/* Projects Section */}
         <section
           id="projects"
-          className="relative min-h-screen gradient-hero py-32 px-8 flex flex-col items-center justify-center overflow-hidden snap-start"
+          className="relative min-h-screen gradient-hero py-24 sm:py-32 px-4 sm:px-8 flex flex-col items-center justify-center overflow-hidden snap-start"
         >
         {/* circle is handled by the shared element above */}
 
@@ -119,11 +121,11 @@ export default function Index() {
           </h2>
 
           {/* Carousel */}
-          <div className="flex items-center justify-center gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8">
             {/* Left Arrow */}
             <button
               onClick={prevProject}
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 text-gray-800"
+              className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 text-gray-800"
               aria-label="Previous project"
             >
               <svg
@@ -145,10 +147,10 @@ export default function Index() {
             <button
               type="button"
               onClick={() => setIsProjectOpen(true)}
-              className="w-80 h-80 bg-white rounded-lg shadow-2xl overflow-hidden group text-left"
+              className="w-[85vw] max-w-sm bg-white rounded-lg shadow-2xl overflow-hidden group text-left"
               aria-label={`Open ${currentProject.title} details`}
             >
-              <div className="relative w-full h-64 overflow-hidden">
+              <div className="relative w-full h-48 sm:h-64 overflow-hidden">
                 <img
                   src={currentProject.image}
                   alt={currentProject.title}
@@ -168,7 +170,7 @@ export default function Index() {
             {/* Right Arrow */}
             <button
               onClick={nextProject}
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 text-gray-800"
+              className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 text-gray-800"
               aria-label="Next project"
             >
               <svg
@@ -230,7 +232,7 @@ export default function Index() {
         {/* About Section */}
         <section
           id="about"
-          className="relative h-screen gradient-hero overflow-hidden snap-start"
+          className="relative min-h-screen gradient-hero overflow-hidden snap-start"
         >
           {/* Title inside the top arc fragment */}
           <div className="absolute top-0 left-0 right-0 h-56 flex items-center justify-center z-10 pointer-events-none -translate-y-2">
@@ -238,14 +240,14 @@ export default function Index() {
           </div>
 
           {/* About content */}
-          <div className="relative z-10 max-w-5xl mx-auto px-8 pt-56">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 pt-56 pb-16 sm:pb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 items-start">
               <img
                 src="/zoe-headshot.jpg"
                 alt="Zoe Homan headshot"
-                className="w-64 h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-xl justify-self-center md:justify-self-start"
+                className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 object-cover rounded-2xl shadow-xl justify-self-center md:justify-self-start"
               />
-              <div className="space-y-4 text-gray-800/90 text-lg leading-relaxed bg-cream rounded-2xl p-6 md:p-8">
+              <div className="space-y-4 text-gray-800/90 text-base sm:text-lg leading-relaxed bg-cream rounded-2xl p-5 sm:p-6 md:p-8">
                 <p>
                   Zoe Homan is a creative student with a passion for visual storytelling and
                   interactive design. She enjoys building engaging experiences that blend art,
