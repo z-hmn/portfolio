@@ -4,7 +4,7 @@
 
 @layer utilities {
   .gradient-hero {
-    background: linear-gradient(to bottom, rgb(147, 51, 234), rgb(192, 132, 252), rgb(244, 114, 182));
+    background: linear-gradient(to bottom, rgb(15, 23, 42), rgb(29, 78, 216), rgb(147, 197, 253));
   }
 }
 
@@ -35,7 +35,7 @@
     transform: translateX(-50%);
     width: min(90vw, calc(100vh + (var(--arcReveal) * 2)));
     aspect-ratio: 1 / 1;
-    background: #FFF8DC;
+    background: #F5E6B3;
     border-radius: 9999px;
     top: calc(100% - var(--arcReveal));
     z-index: 5;
@@ -47,7 +47,7 @@
   .streak-letter::after {
     content: attr(data-letter);
     position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgb(147, 51, 234), rgb(192, 132, 252), rgb(244, 114, 182));
+    background: linear-gradient(to bottom, rgb(15, 23, 42), rgb(29, 78, 216), rgb(147, 197, 253));
     -webkit-background-clip: text; background-clip: text;
     color: transparent; -webkit-text-fill-color: transparent;
     pointer-events: none;

@@ -5,9 +5,10 @@ interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   ariaLabel: string;
+  className?: string;
 }
 
-export default function Modal({ isOpen, onClose, children, ariaLabel }: ModalProps) {
+export default function Modal({ isOpen, onClose, children, ariaLabel, className = "bg-white" }: ModalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const lastFocused = useRef<Element | null>(null);
 
@@ -38,7 +39,7 @@ export default function Modal({ isOpen, onClose, children, ariaLabel }: ModalPro
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
       <div
         ref={containerRef}
-        className="relative bg-white max-w-4xl w-[92vw] rounded-xl shadow-2xl overflow-hidden"
+        className={`relative max-w-4xl w-[92vw] rounded-xl shadow-2xl overflow-hidden ${className}`}
       >
         {children}
       </div>
