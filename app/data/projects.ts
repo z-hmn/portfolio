@@ -23,13 +23,13 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    slug: "color-sort",
-    title: "Color Sorter",
-    summary: "Programmatic solution for mobile Color Sort game",
+    slug: "water-sort-puzzle",
+    title: "Water Sort Puzzle Solver",
+    summary: "Programmatic solution for Water Sort Puzzle mobile phone game",
     tech: ["Java"],
-    image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
-    screenshot: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1400&h=800&fit=crop",
-    repoUrl: "https://github.com/z-hmn/colorsort"
+    image: "/water-sort.png",
+    screenshot: "/water-sort.png",
+    repoUrl: "https://github.com/z-hmn/WaterSortPuzzle"
   },
   {
     id: 3,
