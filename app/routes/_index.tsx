@@ -2,6 +2,9 @@ import type { MetaFunction } from "@vercel/remix";
 import { useState } from "react";
 import { Link, useLocation } from "@remix-run/react";
 import { projects } from "~/data/projects";
+import Modal from "~/components/Modal";
+import ContactCard from "~/components/ContactCard";
+import { contact } from "~/data/contact";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,6 +15,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -46,9 +50,13 @@ export default function Index() {
           <a href="#about" className="text-gray-700 hover:text-gray-900 transition-colors">
             about
           </a>
-          <a href="#contact" className="text-gray-700 hover:text-gray-900 transition-colors">
+          <button
+            type="button"
+            onClick={() => setIsContactOpen(true)}
+            className="text-gray-700 hover:text-gray-900 transition-colors"
+          >
             contact
-          </a>
+          </button>
         </nav>
       </header>
 
@@ -253,6 +261,14 @@ export default function Index() {
           </div>
         </section>
       </main>
+      <Modal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        ariaLabel="Contact"
+        className="bg-cream"
+      >
+        <ContactCard info={contact} />
+      </Modal>
     </div>
   );
 }
