@@ -245,7 +245,7 @@ export default function Index() {
                 alt="Zoe Homan headshot"
                 className="w-64 h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-xl justify-self-center md:justify-self-start"
               />
-              <div className="space-y-4 text-gray-800/90 text-lg leading-relaxed">
+              <div className="space-y-4 text-gray-800/90 text-lg leading-relaxed bg-cream rounded-2xl p-6 md:p-8">
                 <p>
                   Zoe Homan is a creative student with a passion for visual storytelling and
                   interactive design. She enjoys building engaging experiences that blend art,
