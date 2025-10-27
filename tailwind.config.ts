@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#FFF8DC',
+        cream: '#F5E6B3',
       },
       fontFamily: {
         display: ['Georgia', 'serif'],
