@@ -1,10 +1,11 @@
 import type { MetaFunction } from "@vercel/remix";
 import { useState } from "react";
-import { Link, useLocation } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { projects } from "~/data/projects";
 import Modal from "~/components/Modal";
 import ContactCard from "~/components/ContactCard";
 import { contact } from "~/data/contact";
+import { ProjectDetailBody } from "~/components/ProjectDetailBody";
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,6 +17,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isProjectOpen, setIsProjectOpen] = useState(false);
 
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -34,7 +36,6 @@ export default function Index() {
   };
 
   const currentProject = projects[currentProjectIndex];
-  const location = useLocation();
 
   return (
     <div className="relative">
@@ -140,12 +141,12 @@ export default function Index() {
               </svg>
             </button>
 
-            {/* Project Card as Link to details (modal route) */}
-            <Link
-              to={`/projects/${currentProject.slug}`}
-              prefetch="intent"
-              state={{ modal: true, background: location }}
-              className="w-80 h-80 bg-white rounded-lg shadow-2xl overflow-hidden group"
+            {/* Project Card opens local modal without route navigation */}
+            <button
+              type="button"
+              onClick={() => setIsProjectOpen(true)}
+              className="w-80 h-80 bg-white rounded-lg shadow-2xl overflow-hidden group text-left"
+              aria-label={`Open ${currentProject.title} details`}
             >
               <div className="relative w-full h-64 overflow-hidden">
                 <img
@@ -162,7 +163,7 @@ export default function Index() {
                   {currentProject.summary}
                 </p>
               </div>
-            </Link>
+            </button>
 
             {/* Right Arrow */}
             <button
@@ -268,6 +269,17 @@ export default function Index() {
         className="bg-cream"
       >
         <ContactCard info={contact} />
+      </Modal>
+
+      {/* Project Details Modal */}
+      <Modal
+        isOpen={isProjectOpen}
+        onClose={() => setIsProjectOpen(false)}
+        ariaLabel={currentProject.title}
+      >
+        <div className="bg-white">
+          <ProjectDetailBody project={currentProject} />
+        </div>
       </Modal>
     </div>
   );
